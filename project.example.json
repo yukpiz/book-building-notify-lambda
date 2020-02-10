@@ -6,7 +6,7 @@
   "timeout": 5,
   "role": "{{ YOUR_LAMBDA_ROLE }}",
   "environment": {
-    "AWS_REGION": "ap-northeast-1",
+    "AWS_DYNAMODB_REGION": "ap-northeast-1",
     "DYNAMODB_TABLE": "book-building-notify-lambda-table",
     "SLACK_WEBHOOK_URL": "{{ YOUR_SLACK_WEBHOOK_URL }}",
     "SLACK_CHANNEL": "{{ YOUR_SLACK_CHANNEL }}",
