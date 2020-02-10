@@ -176,7 +176,7 @@ func Handler(ctx context.Context) error {
 
 	pp.Println(schedules)
 
-	db := dynamo.New(session.New(), &aws.Config{Region: aws.String(os.Getenv("AWS_REGION"))})
+	db := dynamo.New(session.New(), &aws.Config{Region: aws.String(os.Getenv("AWS_DYNAMODB_REGION"))})
 	table := db.Table(os.Getenv("DYNAMODB_TABLE"))
 	for _, schedule := range schedules {
 		var tempSS []*IPOSchedule
