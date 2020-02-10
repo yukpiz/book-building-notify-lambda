@@ -25,6 +25,7 @@ var (
 type IPOSchedule struct {
 	Index       int
 	CompanyName string
+	DetailURL   string
 }
 
 func Handler(ctx context.Context) error {
@@ -38,9 +39,11 @@ func Handler(ctx context.Context) error {
 	var ss []*IPOSchedule
 
 	doc.Find(".h2_ipolist_name > a").Each(func(i int, s *goquery.Selection) {
+		durl, _ := s.Attr("href")
 		ss = append(ss, &IPOSchedule{
 			Index:       i,
 			CompanyName: EUCJP2UTF8(s.Text()),
+			DetailURL:   durl,
 		})
 	})
 
